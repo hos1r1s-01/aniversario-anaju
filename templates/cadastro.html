@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Presente</title>
+  <link rel="shortcut icon" type="imagex/png" href="{{url_for('static', filename='logo-site.ico')}}">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      /* Fallback font */
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      width: 98%;
+      background-color: #a995d4;
+      margin: 8px;
+      padding: 8px 0;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .botao-nav {
+      padding: 5px 10px;
+      font-size: 1em;
+      background-color: #a995d4;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .botao-nav:hover {
+      background-color: #947dc5;
+    }
+
+    .header {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 5vh;
+    }
+
+    .card {
+      background-color: #fffdfd;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      width: 320px;
+      text-align: center;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .titulo {
+      font-size: 70px;
+      color: black;
+      margin-bottom: 0;
+      margin-left: 10px;
+      margin-right: 10px;
+      font-family: "Alex Brush", cursive;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .dados {
+      display: grid;
+      justify-content: center;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .input {
+      width: 300px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      color: black;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .button {
+      width: 150px;
+      margin: 20px auto;
+      color: black;
+      padding: 10px;
+      background-color: #a995d4;
+      /* Adicionando uma cor de fundo */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      /* Adicionando uma transição suave */
+    }
+
+    .button:hover {
+      background-color: #b999d9;
+      /* Mudando a cor de fundo ao passar o mouse */
+    }
+  </style>
+</head>
+
+<body background="{{url_for('static', filename='background.jpg')}}">
+
+  <nav>
+    <a class="botao-nav" href="{{url_for('index')}}">Home</a>
+    <a class="botao-nav" href="{{url_for('presentes')}}">Presentes</a>
+    <a class="botao-nav" href="{{url_for('location')}}">Localização</a>
+  </nav>
+
+  <div class="header">
+    <div class="card">
+      <h1 class="titulo">Cadastrar</h1>
+      <div class="dados">
+        <form class="dados" method="POST">
+          <label for="nome">Nome do Produto</label>
+          <input id="nome" name="Nome" class="input" type="text" placeholder="Ex. Lápis de Olho">
+          <label for="preco">Preço do Produto</label>
+          <input id="preco" name="Valor" class="input" type="text" placeholder="Ex. 29,99">
+          <label for="foto">Link da Imagem</label>
+          <input id="foto" name="Foto" class="input" type="text" placeholder="https://foto_do_lapis.google.imagens">
+          <label for="link">Link do produto</label>
+          <input id="link" name="Link" class="input" type="text" placeholder="https://anuncio.google.anuncios">
+          <button class="button" type="submit">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
