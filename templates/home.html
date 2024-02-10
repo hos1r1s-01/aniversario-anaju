@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aniversário da Ana Júlia</title>
+  <link rel="shortcut icon" type="imagex/png" href="{{url_for('static', filename='logo-site.ico')}}">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 29vh;
+    }
+
+    .name {
+      font-size: 70px;
+      color: black;
+      margin-bottom: 0;
+      margin-left: 10px;
+      margin-right: 10px;
+      font-family: "Alex Brush", cursive;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .date {
+      font-size: 22px;
+      color: black;
+      margin-top: 0;
+      font-family: "Alex Brush", cursive;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .icons {
+      margin-top: 50px;
+    }
+
+    .icon {
+      display: inline-flex;
+      width: 135px;
+      height: 135px;
+      background-color: #a995d4;
+      border-radius: 50%;
+      margin: 20px 35px;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .icon:hover {
+      transform: scale(1.05);
+    }
+
+    #presente {
+      width: 70px;
+      height: 70px;
+    }
+
+    #map {
+      width: 70px;
+      height: 70px;
+    }
+  </style>
+</head>
+
+<body background="{{url_for('static', filename='background.jpg')}}">
+
+  <div class="header">
+    <h1 class="name">Ana Júlia</h1>
+    <p class="date">02/03/2024</p>
+    <div class="icons">
+      <div class="icon">
+        <a href="{{url_for('presentes')}}"><img id="presente" src="{{url_for('static', filename='logo-presente.png')}}"
+            alt="Ícone de presente"></a>
+      </div>
+      <div class="icon">
+        <a href="{{url_for('location')}}"><img id="map" src="{{url_for('static', filename='logo-mapa.png')}}"
+            alt="Ícone de localização"></a>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

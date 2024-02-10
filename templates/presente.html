@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Presenteie</title>
+    <link rel="shortcut icon" type="imagex/png" href="{{url_for('static', filename='logo-site.ico')}}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            /* Fallback font */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            width: 98%;
+            background-color: #a995d4;
+            margin: 8px;
+            padding: 8px 0;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .botao-nav {
+            padding: 5px 10px;
+            font-size: 1em;
+            background-color: #a995d4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .botao-nav:hover {
+            background-color: #947dc5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: left;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .item-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        h5 {
+            color: #b62323;
+            padding-left: 30px;
+        }
+
+        .instrucao {
+            margin-top: 70px;
+        }
+
+        #titulo_comprar {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        button {
+            width: 100%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: #a995d4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            /* Adicionando para evitar sublinhado nos links */
+            display: inline-block;
+            /* Adicionando para ocupar apenas o espaço necessário */
+            text-align: center;
+            /* Alinhando o texto ao centro */
+        }
+
+        button:hover {
+            background-color: #947dc5;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .botao {
+            width: 100%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: #a995d4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            /* Adicionando para evitar sublinhado nos links */
+            display: inline-block;
+            /* Adicionando para ocupar apenas o espaço necessário */
+            text-align: center;
+            /* Alinhando o texto ao centro */
+        }
+
+        .botao:hover {
+            background-color: #947dc5;
+        }
+
+        #presente_comprado {
+            background-color: #b62323;
+            margin-top: 40px;
+        }
+
+        #presente_comprado:hover {
+            background-color: #a12626;
+        }
+
+
+    </style>
+</head>
+
+<body background="{{url_for('static', filename='background.jpg')}}">
+    <nav>
+        <a class="botao-nav" href="{{url_for('index')}}">Home</a>
+        <a class="botao-nav" href="{{url_for('presentes')}}">Presentes</a>
+    </nav>
+    <form method="POST">
+        <div class="item-container">
+            <img src="{{item['Imagem']}}" height="200" width="200">
+            <h2>{{item['Nome']}}</h2>
+            <h2>R$: {{item['Valor']}}</h2>
+        </div>
+        {% if permissao == 'anaju' %}
+        <button type="submit">Excluir</button>
+        {% else %}
+        {% if item['Status'] == 'Disponivel' %}
+        <a class="botao" href="{{item['Link']}}" target="_blank" rel="noopener noreferrer">Comprar</a>
+        <div class="instrucao">
+            <h2 id="titulo_comprar">Como comprar:</h2>
+            <h4>- Clique no botão intitulado "Comprar".</h4>
+            <h4>- Será aberta uma nova aba para um site que contenha o presente.</h4>
+            <h4>- No momento da compra, adicione os seguintes dados para entrega do presente ao aniversariante:</h4>
+            <h5> - CEP: 72.720-270</h5>
+            <h5> - Endereço: Quadra 27 Casa 04</h5>
+            <h5> - Setor Tradicional - Brazlândia</h5>
+            <h4>- Ao finalizar a compra, não se esqueça de voltar ao site nessa tela e marcar esse presente como
+                "Comprado" no final da página!</h4>
+            <h4>- Boas compras!</h4>
+        </div>
+        <button type="submit" id="presente_comprado">Presente comprado!</button>
+        {% endif %}
+        {% endif %}
+
+    </form>
+</body>
+
+</html>
