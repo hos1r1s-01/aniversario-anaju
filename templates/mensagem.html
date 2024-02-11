@@ -57,7 +57,7 @@
 
         h1 {
             color: #333;
-            margin-top: 200px;
+            margin-top: 150px;
             margin-bottom: 20px;
             font-size: 50px;
         }
@@ -74,7 +74,7 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 80%;
-            max-width: 400px;
+            max-width: 320px;
             text-align: left;
             margin: auto;
             margin-top: 20px;
@@ -102,10 +102,23 @@
             /* Alinhando o texto à esquerda */
         }
 
+        .input {
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            color: black;
+            font-size: 1em;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
         textarea {
             width: 100%;
             padding: 10px;
             font-size: 1em;
+            font-family: Arial, Helvetica, sans-serif;
             border: 1px solid #ddd;
             border-radius: 4px;
             margin-bottom: 10px;
@@ -158,6 +171,8 @@
         <h1 class="titulo">Deixe uma mensagem!</h1>
         <form method="POST">
             <div class="item-container">
+                <label for="nome">Seu nome:</label>
+                <input class="input" id="nome" name="Nome" type="text" placeholder="Digite aqui seu nome.">
                 <label for="mensagem">Mensagem:</label>
                 <textarea id="mensagem" name="Texto" placeholder="Digite aqui sua mensagem." rows="4"></textarea>
             </div>

@@ -177,6 +177,7 @@ def mensagem(ID):
     if request.method == 'POST':
 
         texto = request.form.get("Texto")
+        name = request.form.get("Nome")
 
         queryNome = "SELECT Nome FROM presentes WHERE ID = {0}".format(ID)
         cursor.execute(queryNome)
@@ -184,8 +185,8 @@ def mensagem(ID):
             nome = row
             nomeIs = {"nome": nome}
 
-        query = "INSERT INTO mensagens(IDPresente, NomePresente, Mensagem) VALUES (%s, %s, %s)"
-        cursor.execute(query, (ID, nomeIs['nome'][0], texto))
+        query = "INSERT INTO mensagens(IDPresente, NomePresente, NomePessoa, Mensagem) VALUES (%s, %s, %s, %s)"
+        cursor.execute(query, (ID, nomeIs['nome'][0], name, texto))
 
         conexao.commit()
         conexao.close()
@@ -209,14 +210,15 @@ def mensagens():
             session.clear()
             return redirect(url_for('index')), 301
 
-        cursor.execute("SELECT NomePresente, Mensagem FROM mensagens")
+        cursor.execute("SELECT NomePresente, NomePessoa, Mensagem FROM mensagens")
 
         lista_mensagens = []
 
         for row in cursor:
-            NomePresente, Mensagem = row
+            NomePresente, NomePessoa, Mensagem = row
             lista_mensagens.append({
                 "NomePresente": NomePresente,
+                "NomePessoa" : NomePessoa,
                 "Mensagem": Mensagem
             })
 
