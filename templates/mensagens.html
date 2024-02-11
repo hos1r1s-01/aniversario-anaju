@@ -101,6 +101,11 @@
         a:hover {
             background-color: #947dc5;
         }
+
+        #nome-pessoa {
+            color: #a995d4;
+        }
+
     </style>
 </head>
 
@@ -118,7 +123,7 @@
     <div class="card-container">
         {% for item in lista_mensagens %}
         <div class="card">
-            <h3>{{item['NomePessoa']}}</h3>
+            <h3 id="nome-pessoa">{{item['NomePessoa']}}</h3>
             <h3>{{item['NomePresente']}}</h3>
             <h4>"{{item['Mensagem']}}"</h4>
         </div>
