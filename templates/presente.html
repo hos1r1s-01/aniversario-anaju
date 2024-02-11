@@ -145,13 +145,22 @@
             background-color: #947dc5;
         }
 
-        #presente_comprado {
+        #submit-btn {
             background-color: #b62323;
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
-        #presente_comprado:hover {
+        #submit-btn:hover {
             background-color: #a12626;
+        }
+
+        .check {
+            margin-top: 30px;
+        }
+
+        #label-checkbox {
+            color: #b62323;
+            font-weight: bold;
         }
 
 
@@ -182,15 +191,27 @@
             <h5> - CEP: 72.720-270</h5>
             <h5> - Endereço: Quadra 27 Casa 04</h5>
             <h5> - Setor Tradicional - Brazlândia</h5>
-            <h4>- Ao finalizar a compra, não se esqueça de voltar ao site nessa tela e marcar esse presente como
-                "Comprado" no final da página!</h4>
+            <h4>- Ao finalizar a compra, não se esqueça de voltar ao site nesse produto, marcar a opção "Finalizei a compra!" e apertar o botão de "Presente comprado".</h4>
+            <h4>- Após finalizada a compra, você poderá deixar uma mensagem para a aniversariante!</h4>
             <h4>- Boas compras!</h4>
         </div>
-        <button type="submit" id="presente_comprado">Presente comprado!</button>
+        <div class="check">
+            <input type="checkbox" id="checkbox" name="checkbox">
+            <label for="checkbox" id="label-checkbox">Finalizei a compra!</label>
+        </div>
+        <button type="submit" id="submit-btn" disabled>Presente comprado!</button>
         {% endif %}
         {% endif %}
 
     </form>
+
+    <script>
+        document.getElementById('checkbox').addEventListener('change', function() {
+            var submitBtn = document.getElementById('submit-btn');
+            submitBtn.disabled = !this.checked;
+        });
+    </script>
+
 </body>
 
 </html>
